@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viviana Soto — Orientación Vocacional</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:      #2D4A3E;
+      --verde-suave: #49756A;
+      --verde-mid:  #5A8070;
+      --verde-pale: #C8DDD6;
+      --arena:      #F5F0E8;
+      --arena-dark: #E8DDD0;
+      --ink:        #1A1A1A;
+      --ink-light:  #4A4A4A;
+      --white:      #FFFFFF;
+
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+      --max-w: 680px;
+      --gap:   2rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--arena);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout util ── */
+    .container {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    .hero {
+      padding-top: 5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero__eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--verde-mid);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: normal;
+      line-height: 1.25;
+      color: var(--verde);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero__headline em {
+      font-style: italic;
+      color: var(--verde-mid);
+    }
+
+    .hero__sub {
+      font-size: 1rem;
+      color: var(--ink-light);
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    /* ── Umbral (firma visual) ── */
+    .umbral {
+      margin-block: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .umbral__line {
+      flex: 1;
+      height: 1px;
+      background: var(--arena-dark);
+    }
+
+    .umbral__mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--verde-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .umbral__mark svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--verde);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+    }
+
+    /* ════════════════════════════
+       SOBRE MÍ
+    ════════════════════════════ */
+    .sobre {
+      padding-bottom: 3rem;
+    }
+
+    .sobre__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--verde-mid);
+      margin-bottom: 1rem;
+    }
+
+    .sobre__text {
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .sobre__text + .sobre__text {
+      margin-top: 0.2rem;
+    }
+
+    /* ════════════════════════════
+       CREDENCIALES
+    ════════════════════════════ */
+    .credenciales {
+      background: var(--white);
+      border: 1px solid var(--arena-dark);
+      border-radius: 8px;
+      padding: 1.6rem 1.8rem;
+      margin-block: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.94rem;
+      color: var(--ink-light);
+    }
+
+    .cred-item__dot {
+      margin-top: 0.45em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--verde);
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════
+       PARA QUIÉN
+    ════════════════════════════ */
+    .paraquien {
+      background: var(--verde-suave);
+      border-radius: 10px;
+      padding: 2.4rem 2rem;
+      margin-block: 2.5rem;
+      color: var(--white);
+    }
+
+    .paraquien__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--verde-pale);
+      margin-bottom: 1.1rem;
+    }
+
+    .paraquien__text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      line-height: 1.75;
+      color: var(--white);
+      font-weight: normal;
+    }
+
+    .paraquien__text em {
+      font-style: italic;
+      color: var(--verde-pale);
+    }
+
+    /* ════════════════════════════
+       CTA / CONTACTO
+    ════════════════════════════ */
+    .cta {
+      padding-top: 1rem;
+      padding-bottom: 5rem;
+    }
+
+    .cta__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--verde-mid);
+      margin-bottom: 1rem;
+    }
+
+    .cta__text {
+      font-size: 1rem;
+      color: var(--ink-light);
+      margin-bottom: 1.8rem;
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .cta__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--verde-suave);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.85rem 1.6rem;
+      border-radius: 6px;
+      transition: background 0.2s ease, transform 0.15s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .cta__link:hover {
+      background: #1e3329;
+      transform: translateY(-1px);
+    }
+
+    .cta__link:focus-visible {
+      outline: 3px solid var(--verde-mid);
+      outline-offset: 3px;
+    }
+
+    .cta__link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cta__note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    .footer {
+      border-top: 1px solid var(--arena-dark);
+      padding-block: 1.8rem;
+      text-align: center;
+    }
+
+    .footer__text {
+      font-size: 0.8rem;
+      color: var(--ink-light);
+      opacity: 0.65;
+    }
+
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
+    @media (max-width: 480px) {
+      .hero { padding-top: 3.5rem; }
+      .paraquien { padding: 1.8rem 1.4rem; }
+      .credenciales { padding: 1.3rem 1.4rem; }
+    }
+
+    /* ════════════════════════════
+       REDUCED MOTION
+    ════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      .cta__link { transition: none; }
+    }
+
+    /* ── Fade-in suave al cargar ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero__eyebrow,
+    .hero__headline,
+    .hero__sub {
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .hero__eyebrow  { animation-delay: 0.05s; }
+    .hero__headline { animation-delay: 0.18s; }
+    .hero__sub      { animation-delay: 0.30s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__eyebrow,
+      .hero__headline,
+      .hero__sub { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero__eyebrow">Orientación Vocacional</p>
+      <h1 class="hero__headline">
+        No tienes que tener<br>
+        todo resuelto<br>
+        <em>antes de escribirme.</em>
+      </h1>
+      <p class="hero__sub">
+        Ese es justamente el punto de partida.
+      </p>
+    </div>
+  </header>
+
+  <!-- ══ UMBRAL (firma visual) ══ -->
+  <div class="container">
+    <div class="umbral" aria-hidden="true">
+      <div class="umbral__line"></div>
+      <div class="umbral__mark">
+        <!-- Icono: brújula simplificada -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M16.5 7.5 L13.5 13.5 L7.5 16.5 L10.5 10.5 Z"/>
+        </svg>
+      </div>
+      <div class="umbral__line"></div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ══ SOBRE MÍ ══ -->
+    <section class="sobre">
+      <div class="container">
+        <p class="sobre__label">Sobre mí</p>
+
+        <p class="sobre__text">
+          Soy psicóloga educacional y clínica infanto-juvenil, con más de 17 años
+          de experiencia en el ámbito educativo. Acompaño a estudiantes en su proceso
+          de elección vocacional, ayudándoles a tomar una decisión informada y coherente
+          con quiénes son, más allá de la presión externa o la falta de información.
+        </p>
+
+        <p class="sobre__text">
+          Mi trabajo no consiste en decirte qué estudiar. Consiste en ayudarte
+          a escucharte mejor, a ordenar lo que ya sabes de ti mismo y a distinguir
+          tus propias señales del ruido que te rodea.
+        </p>
+
+        <!-- Credenciales -->
+        <div class="credenciales" role="list" aria-label="Especialidades y experiencia">
+          <div class="cred-item" role="listitem">
+            <span class="cred-item__dot" aria-hidden="true"></span>
+            <span>Psicóloga educacional y clínica infanto-juvenil</span>
+          </div>
+          <div class="cred-item" role="listitem">
+            <span class="cred-item__dot" aria-hidden="true"></span>
+            <span>Más de 17 años de experiencia en el ámbito educativo</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PARA QUIÉN ══ -->
+    <section class="paraquien" aria-label="Para quién es este servicio">
+      <div class="container">
+        <p class="paraquien__label">¿Para quién es esto?</p>
+        <p class="paraquien__text">
+          Si sientes que tú o alguien que conoces está atravesando este momento
+          con <em>más ansiedad que claridad</em>, me encantaría que conversemos
+          sobre cómo este proceso podría ayudar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ CONTACTO ══ -->
+    <section class="cta" id="contacto">
+      <div class="container">
+        <p class="cta__label">Conversemos</p>
+        <p class="cta__text">
+          Escríbeme cuando quieras. No hace falta que llegues con las preguntas
+          ordenadas ni con una idea clara de lo que buscas. Podemos empezar
+          desde donde estás.
+        </p>
+
+        <a href="mailto:vsoto.ordenes@gmail.com" class="cta__link">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+          vsoto.ordenes@gmail.com
+        </a>
+
+        <p class="cta__note">
+          Respondo personalmente. Sin formularios, sin intermediarios.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+
+
+</body>
+</html>
