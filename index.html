@@ -139,42 +139,6 @@
       padding: 4rem 0;
     }
 
-    .sobre__layout {
-      display: flex;
-      gap: 2.2rem;
-      align-items: flex-start;
-    }
-
-    .sobre__foto {
-      flex-shrink: 0;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--verde-pale);
-    }
-
-    .sobre__foto img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .sobre__content {
-      flex: 1;
-    }
-
-    @media (max-width: 480px) {
-      .sobre__layout {
-        flex-direction: column;
-        align-items: center;
-      }
-      .sobre__foto {
-        width: 120px;
-        height: 120px;
-      }
-    }
 
     .section-tag {
       font-size: 0.72rem;
@@ -230,6 +194,43 @@
     .cta {
       background: var(--white);
       padding: 4rem 0 5rem;
+    }
+
+    .cta__layout {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .cta__content {
+      flex: 1;
+    }
+
+    .cta__foto {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--verde-pale);
+    }
+
+    .cta__foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+
+    @media (max-width: 480px) {
+      .cta__layout {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+      .cta__foto {
+        width: 120px;
+        height: 120px;
+      }
     }
 
     .cta__heading {
@@ -367,32 +368,24 @@
       <div class="wrap">
         <span class="section-tag">Sobre mí</span>
 
-        <div class="sobre__layout">
-          <div class="sobre__foto">
-            <img src="Foto.jpg" alt="Viviana Soto, psicóloga educacional" />
-          </div>
+        <p class="sobre__text">
+          Soy psicóloga educacional y clínica infanto-juvenil, con más de 17 años
+          de experiencia en el ámbito educativo. Acompaño a estudiantes en su proceso
+          de elección vocacional, ayudándoles a tomar una decisión informada y coherente
+          con quiénes son, más allá de la presión externa o la falta de información.
+        </p>
 
-          <div class="sobre__content">
-            <p class="sobre__text">
-              Soy psicóloga educacional y clínica infanto-juvenil, con más de 17 años
-              de experiencia en el ámbito educativo. Acompaño a estudiantes en su proceso
-              de elección vocacional, ayudándoles a tomar una decisión informada y coherente
-              con quiénes son, más allá de la presión externa o la falta de información.
-            </p>
+        <p class="sobre__highlight">
+          Mi trabajo no consiste en decirte qué estudiar. Consiste en ayudarte
+          a escucharte mejor, a ordenar lo que ya sabes de ti mismo y a distinguir
+          tus propias señales del ruido que te rodea.
+        </p>
 
-            <p class="sobre__highlight">
-              Mi trabajo no consiste en decirte qué estudiar. Consiste en ayudarte
-              a escucharte mejor, a ordenar lo que ya sabes de ti mismo y a distinguir
-              tus propias señales del ruido que te rodea.
-            </p>
-
-            <p class="sobre__text">
-              Utilizo un instrumento de evaluación que explora intereses, fortalezas
-              personales y el contexto familiar de cada joven, y lo acompaño con sesiones
-              donde construimos juntos un camino de decisión.
-            </p>
-          </div>
-        </div>
+        <p class="sobre__text">
+          Utilizo un instrumento de evaluación que explora intereses, fortalezas
+          personales y el contexto familiar de cada joven, y lo acompaño con sesiones
+          donde construimos juntos un camino de decisión.
+        </p>
       </div>
     </section>
 
@@ -412,23 +405,31 @@
     <!-- CTA -->
     <section class="cta" id="contacto">
       <div class="wrap">
-        <span class="section-tag">Conversemos</span>
-        <h2 class="cta__heading">Escríbeme cuando quieras.</h2>
-        <p class="cta__text">
-          No hace falta que llegues con las preguntas ordenadas
-          ni con una idea clara de lo que buscas.
-          Podemos empezar desde donde estás.
-        </p>
+        <div class="cta__layout">
+          <div class="cta__content">
+            <span class="section-tag">Conversemos</span>
+            <h2 class="cta__heading">Escríbeme cuando quieras.</h2>
+            <p class="cta__text">
+              No hace falta que llegues con las preguntas ordenadas
+              ni con una idea clara de lo que buscas.
+              Podemos empezar desde donde estás.
+            </p>
 
-        <a href="mailto:vsoto.ordenes@gmail.com" class="cta__btn">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="M2 7l10 7 10-7"/>
-          </svg>
-          vsoto.ordenes@gmail.com
-        </a>
+            <a href="mailto:vsoto.ordenes@gmail.com" class="cta__btn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M2 7l10 7 10-7"/>
+              </svg>
+              vsoto.ordenes@gmail.com
+            </a>
 
-        <p class="cta__note">Respondo personalmente. Sin formularios, sin intermediarios.</p>
+            <p class="cta__note">Respondo personalmente. Sin formularios, sin intermediarios.</p>
+          </div>
+
+          <div class="cta__foto">
+            <img src="Foto.jpg" alt="Viviana Soto, psicóloga educacional" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -436,4 +437,3 @@
 
 </body>
 </html>
-
