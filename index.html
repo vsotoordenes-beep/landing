@@ -139,6 +139,43 @@
       padding: 4rem 0;
     }
 
+    .sobre__layout {
+      display: flex;
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    .sobre__foto {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--verde-pale);
+    }
+
+    .sobre__foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .sobre__content {
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .sobre__layout {
+        flex-direction: column;
+        align-items: center;
+      }
+      .sobre__foto {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
     .section-tag {
       font-size: 0.72rem;
       font-weight: 600;
@@ -330,24 +367,32 @@
       <div class="wrap">
         <span class="section-tag">Sobre mí</span>
 
-        <p class="sobre__text">
-          Soy psicóloga educacional y clínica infanto-juvenil, con más de 17 años
-          de experiencia en el ámbito educativo. Acompaño a estudiantes en su proceso
-          de elección vocacional, ayudándoles a tomar una decisión informada y coherente
-          con quiénes son, más allá de la presión externa o la falta de información.
-        </p>
+        <div class="sobre__layout">
+          <div class="sobre__foto">
+            <img src="foto.jpg" alt="Viviana Soto, psicóloga educacional" />
+          </div>
 
-        <p class="sobre__highlight">
-          Mi trabajo no consiste en decirte qué estudiar. Consiste en ayudarte
-          a escucharte mejor, a ordenar lo que ya sabes de ti mismo y a distinguir
-          tus propias señales del ruido que te rodea.
-        </p>
+          <div class="sobre__content">
+            <p class="sobre__text">
+              Soy psicóloga educacional y clínica infanto-juvenil, con más de 17 años
+              de experiencia en el ámbito educativo. Acompaño a estudiantes en su proceso
+              de elección vocacional, ayudándoles a tomar una decisión informada y coherente
+              con quiénes son, más allá de la presión externa o la falta de información.
+            </p>
 
-        <p class="sobre__text">
-          Utilizo un instrumento de evaluación que explora intereses, fortalezas
-          personales y el contexto familiar de cada joven, y lo acompaño con sesiones
-          donde construimos juntos un camino de decisión.
-        </p>
+            <p class="sobre__highlight">
+              Mi trabajo no consiste en decirte qué estudiar. Consiste en ayudarte
+              a escucharte mejor, a ordenar lo que ya sabes de ti mismo y a distinguir
+              tus propias señales del ruido que te rodea.
+            </p>
+
+            <p class="sobre__text">
+              Utilizo un instrumento de evaluación que explora intereses, fortalezas
+              personales y el contexto familiar de cada joven, y lo acompaño con sesiones
+              donde construimos juntos un camino de decisión.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
